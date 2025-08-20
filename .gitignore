@@ -1,1 +1,26 @@
-.idea
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+*.egg-info/
+.eggs/
+
+# OS and IDE-specific files
+.DS_Store
+.env
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+
+# Project-specific files
+*.sqlite3
+/db.sqlite3
+/.secrets
+/uploads/
+/static/
+
+# Media files
+media/
