@@ -6,14 +6,13 @@ DATABASE_URL = "sqlite+aiosqlite:///./online_cinema.db"
 engine = create_async_engine(
     DATABASE_URL, connect_args={"check_same_thread": False}, echo=True, future=True
 )
-
-AsyncSessionLocal = async_sessionmaker(
+SessionLocal = sessionmaker(
+    engine,
+    class_=AsyncSession,
+    expire_on_commit=False,
     autocommit=False,
     autoflush=False,
-    bind=engine,
-    expire_on_commit=False,
-    class_=AsyncSession,
-    future=True,
-)
+    future=True)
+
 
 Base = declarative_base()

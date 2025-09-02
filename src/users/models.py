@@ -40,11 +40,10 @@ class User(Base):
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
     group_id: Mapped[int] = mapped_column(ForeignKey("group.id"))
-    group: Mapped["Group"] = relationship("Group", back_populates="group")
+    group: Mapped["Group"] = relationship("Group", back_populates="users")
 
     profile: Mapped["Profile"] = relationship("Profile", back_populates="user")
 
-    def create
 
 class Profile(Base):
     __tablename__ = "profiles"
@@ -63,6 +62,4 @@ class Profile(Base):
         nullable=False
     )
     user: Mapped[User] = relationship("User", back_populates="profile")
-
-
 
